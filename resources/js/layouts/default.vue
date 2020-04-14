@@ -1,25 +1,27 @@
 <template>
-  <div v-if="requireNav == true" >
-      <div id="wrapper">
-        <sidebar />
-        <div id="content-wrapper" class="d-flex flex-column">
-          <div id="content">
-            <navbar />
-            <child />
-          </div>
-          <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-              <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Ian xxxxxx 2020</span>
-              </div>
+        <div v-if="requireNav == true" >
+
+          <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+              <navbar />
+              <sidebar />
+
+           <div class="main-content">
+              <child />
             </div>
-          </footer>
+            <footer class="main-footer">
+              <div class="footer-left">
+                Copyright &copy; 2020 <div class="bullet"></div> Design By <a target="_blank" href="https://ian.galileoc.co.ke/">Galileo Computing</a>
+              </div>
+              <div class="footer-right">
+                0.1.0
+              </div>
+            </footer>
+          </div>
         </div>
-      </div>
-  </div>
-  <div v-else>
-    <child />
-  </div>
+        <div v-else>
+          <child />
+        </div>
 </template>
 
 <script>
