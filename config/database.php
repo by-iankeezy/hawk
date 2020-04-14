@@ -6,10 +6,9 @@ $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $host = $url["host"] ?? null;
 $username = $url["user"] ?? null;
 $password = $url["pass"] ?? null;
-$database = substr($url["path"], 1);
+$database = $url["path"] == null ? null : substr($url["path"], 1);
 
 $DATABASE_URL=parse_url('postgres://heoxiujpotdddd:0b9bb8008fce05453785ff3e7f386960280e41467ec01e009186b1fc50a6f97b@ec2-18-209-187-54.compute-1.amazonaws.com:5432/d894f5vt6a2332');
-
 
 return [
 
@@ -53,17 +52,21 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => $host,
+            'host' => $host ?? env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'database' => $database ?? env('DB_DATABASE', 'pigeon'),
+            'username' => $username ?? env('DB_USERNAME', 'root'),
+            'password' => $password ?? env('DB_PASSWORD', 'root'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
+            'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
         
