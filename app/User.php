@@ -93,4 +93,10 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     {
         return [];
     }
+
+    public function role(Request $request) {
+        $user = $request->user();
+        return User::find($user['id']);
+        // return $this->hasOne('App\User','id','userID');
+    }
 }

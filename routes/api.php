@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     
     Route::get('/user', 'UsersController@user');
+    
     Route::get('/user/{id}', 'UsersController@getUser');
     Route::get('/users', 'UsersController@getUsers');
     Route::get('/chart/users', 'UsersController@getUserChart');

@@ -2,24 +2,22 @@
   <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">Pluto</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">P</a>
           </div>
           <ul class="sidebar-menu">
-              <li class="menu-header">Dashboard</li>
-              <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                  <li class="active"><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
-                </ul>
+              <li class="menu-header">User</li>
+              <li class="nav-item dropdown">
+                <router-link :to="{name: 'dashboard'}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></router-link>
+                <router-link :to="{name: 'profile'}" class="nav-link"><i class="fas fa-user"></i><span>Profile</span></router-link>
+
               </li>
-              <li class="menu-header">Starter</li>
+              <li class="menu-header">My Institution</li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" role="menu">
                   <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
                   <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
                   <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
